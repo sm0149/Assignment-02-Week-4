@@ -1,0 +1,45 @@
+---
+title: "Bad Drivers Dataset"
+author: "Sowmya"
+date: "9/15/2022"
+output:
+  word_document: default
+  pdf_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Section 1: Description of the data
+
+The Bad Drivers data set consists of 51 observations of 8 variables. Each observation contains data about road accidents in a US State. The variables include "State", "Number of drivers involved in fatal collisions per billion miles", "Percentage Of Drivers Involved In Fatal Collisions Who Were Speeding", "Percentage Of Drivers Involved In Fatal Collisions Who Were Alcohol-Impaired",	"Percentage Of Drivers Involved In Fatal Collisions Who Were Not Distracted", "Percentage Of Drivers Involved In Fatal Collisions Who Had Not Been Involved In Any Previous Accidents",	"Car Insurance Premiums " and "Losses incurred by insurance companies for collisions per insured driver" 
+
+## Section 2: Reading the data into R
+```{r}
+data <- read.csv(("https://raw.githubusercontent.com/fivethirtyeight/data/master/bad-drivers/bad-drivers.csv"))
+head(data)
+```
+
+## Section 3:Clean the data
+```{r}
+sum(is.na(data)) #check for NA
+colnames(data) #get columnnames
+```
+
+
+```{r}
+colnames(data) <-
+  c("State","Fatal_collisions", "Percentage_speeding","percentage_alcohol_impared", "Percentage_no_distracted", "percentage_with_no_prior_accidents", "Car_Insurance_Premiums", "Losses_to_insurance_companies_per_driver") 
+colnames(data)
+#change column names
+```
+
+## Section 4: Characteristics of the data
+"This dataframe has `r nrows(data)`rows and `r ncols(data)` columns. The names of the columns and a brief description of each are in the table below"
+```
+Section 5: Summary statistics
+```{r}
+summary(data)
+```
+
